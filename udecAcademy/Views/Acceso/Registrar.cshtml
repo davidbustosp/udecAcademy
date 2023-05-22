@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="~/Content/css/registro.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Registro de Usuarios <small>Academia</small></h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" action="@Url.Action("Registrar","Acceso")" method="post">
+                            <div class="form-group">
+                                <select name="PerfilUsuario" id="PerfilUsuario" class="form-control input-sm" placeholder="Perfil">
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Usuario</option>
+                                </select>
+                                <!--<input type="text" name="PerfilUsuario" id="PerfilUsuario" class="form-control input-sm" placeholder="Perfil">-->
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="LoginUsuario" id="LoginUsuario" class="form-control input-sm" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <select name="IdTipoDocUsuario" id="IdTipoDocUsuario" class="form-control input-sm" placeholder="Tipo Documento">
+                                    <option value="1">Cédula de Ciudadanía</option>
+                                    <option value="2">Tarjeta de Identidad</option>
+                                </select>
+                                <!--<input type="text" name="IdTipoDocUsuario" id="IdTipoDocUsuario" class="form-control input-sm" placeholder="Tipo Documento">-->
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="DocumentoUsuario" id="DocumentoUsuario" class="form-control input-sm" placeholder="Número Documento">
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="Nombre1Usuario" id="Nombre1Usuario" class="form-control input-sm" placeholder="Primer Nombre">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="Nombre2Usuario" id="Nombre2Usuario" class="form-control input-sm" placeholder="Segundo Nombre">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="Apellido1Usuario" id="Apellido1Usuario" class="form-control input-sm" placeholder="Primer Apellido">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="Apellido2Usuario" id="Apellido2Usuario" class="form-control input-sm" placeholder="Segundo Apellido">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" name="EmailUsuario" id="EmailUsuario" class="form-control input-sm" placeholder="Email">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" name="ClaveUsuario" id="ClaveUsuario" class="form-control input-sm" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" name="ConfirmarClave" id="ConfirmarClave" class="form-control input-sm" placeholder="Confirmar Password">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="submit" value="Registrar" class="btn btn-info btn-block">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
