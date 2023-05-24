@@ -1,7 +1,6 @@
-﻿
-@{
+﻿@{
     //Layout = null;
-    ViewBag.Title = "Registro Usuarios";
+    ViewBag.Title = "Modificar Usuario";
 }
 
 <!DOCTYPE html>
@@ -19,39 +18,59 @@
             <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Registro de Usuarios <small>Academia</small></h3>
+                        <h3 class="panel-title">Modificar Usuario <small>Academia</small></h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" id="registro" name="registro" action="@Url.Action("Registrar","Home")" method="post">
+                        <form role="form" id="registro" name="registro" action=""@Url.Action("ModificarUsuario","Home")" method="post">
                             <div class="form-group">
+                                <input type="hidden" name="IdUsuario" id="IdUsuario" value="@Model.IdUsuario" />
                                 <select name="PerfilUsuario" id="PerfilUsuario" class="form-control input-sm" placeholder="Perfil">
-                                    <option value="1">Administrador</option>
-                                    <option value="2">Usuario</option>
+                                    @if (Model.PerfilUsuario == 1)
+                                    {
+                                        <option value="1" selected>Administrador</option>
+                                        <option value="2">Usuario</option>
+                                    }
+                                    @if (Model.PerfilUsuario == 2)
+                                    {
+                                        <option value="1">Administrador</option>
+                                        <option value="2" selected>Usuario</option>
+                                    }
+
                                 </select>
                                 <!--<input type="text" name="PerfilUsuario" id="PerfilUsuario" class="form-control input-sm" placeholder="Perfil">-->
                             </div>
                             <div class="form-group">
-                                <input type="text" name="LoginUsuario" id="LoginUsuario" class="form-control input-sm" placeholder="Username" required>
+                                <input type="text" name="LoginUsuario" id="LoginUsuario" class="form-control input-sm" placeholder="Username" value="@Model.LoginUsuario" readonly>
                             </div>
                             <div class="form-group">
                                 <select name="IdTipoDocUsuario" id="IdTipoDocUsuario" class="form-control input-sm" placeholder="Tipo Documento">
+                                    @if (Model.IdTipoDocUsuario == 1)
+                                    {
+                                        <option value="1" selected>Cédula de Ciudadanía</option>
+                                        <option value="2">Tarjeta de Identidad</option>
+                                    }
+                                    @if (Model.IdTipoDocUsuario == 1)
+                                    {
+                                        <option value="1">Cédula de Ciudadanía</option>
+                                        <option value="2" selected>Tarjeta de Identidad</option>
+                                    }
                                     <option value="1">Cédula de Ciudadanía</option>
                                     <option value="2">Tarjeta de Identidad</option>
                                 </select>
                                 <!--<input type="text" name="IdTipoDocUsuario" id="IdTipoDocUsuario" class="form-control input-sm" placeholder="Tipo Documento">-->
                             </div>
                             <div class="form-group">
-                                <input type="text" name="DocumentoUsuario" id="DocumentoUsuario" class="form-control input-sm" placeholder="Número Documento" required>
+                                <input type="text" name="DocumentoUsuario" id="DocumentoUsuario" class="form-control input-sm" placeholder="Número Documento" value="@Model.DocumentoUsuario" required>
                             </div>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="Nombre1Usuario" id="Nombre1Usuario" class="form-control input-sm" placeholder="Primer Nombre" required>
+                                        <input type="text" name="Nombre1Usuario" id="Nombre1Usuario" class="form-control input-sm" placeholder="Primer Nombre" value="@Model.Nombre1Usuario" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="Nombre2Usuario" id="Nombre2Usuario" class="form-control input-sm" placeholder="Segundo Nombre">
+                                        <input type="text" name="Nombre2Usuario" id="Nombre2Usuario" class="form-control input-sm" placeholder="Segundo Nombre" value="@Model.Nombre2Usuario">
                                     </div>
                                 </div>
                             </div>
@@ -59,29 +78,29 @@
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="Apellido1Usuario" id="Apellido1Usuario" class="form-control input-sm" placeholder="Primer Apellido" required>
+                                        <input type="text" name="Apellido1Usuario" id="Apellido1Usuario" class="form-control input-sm" placeholder="Primer Apellido" value="@Model.Apellido1Usuario" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="Apellido2Usuario" id="Apellido2Usuario" class="form-control input-sm" placeholder="Segundo Apellido">
+                                        <input type="text" name="Apellido2Usuario" id="Apellido2Usuario" class="form-control input-sm" placeholder="Segundo Apellido" value="@Model.Apellido2Usuario">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <input type="email" name="EmailUsuario" id="EmailUsuario" class="form-control input-sm" placeholder="Email" required>
+                                <input type="email" name="EmailUsuario" id="EmailUsuario" class="form-control input-sm" placeholder="Email" value="@Model.EmailUsuario" required>
                             </div>
 
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="ClaveUsuario" id="ClaveUsuario" class="form-control input-sm" placeholder="Password" required>
+                                        <input type="password" name="ClaveUsuario" id="ClaveUsuario" class="form-control input-sm" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="ConfirmarClave" id="ConfirmarClave" class="form-control input-sm" placeholder="Confirmar Password" required>
+                                        <input type="password" name="ConfirmarClave" id="ConfirmarClave" class="form-control input-sm" placeholder="Confirmar Password">
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +112,7 @@
                                 </div>
                             }
 
-                            <input type="submit" id="btn_registro" value="Registrar" class="btn btn-info btn-block">
+                            <input type="submit" id="btn_registro" value="Actualizar" class="btn btn-info btn-block">
 
                         </form>
                     </div>

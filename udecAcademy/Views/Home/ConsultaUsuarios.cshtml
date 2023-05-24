@@ -1,0 +1,93 @@
+﻿
+@{
+    //Layout = null;
+    ViewBag.Title = "Registro Usuarios";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listado de Usuarios</title>
+</head>
+<body>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    Perfil
+                </th>
+                <th>
+                    Login
+                </th>
+                <th>
+                    Tipo Documento
+                </th>
+                <th>
+                    No Documento
+                </th>
+                <th>
+                    Primer Nombre
+                </th>
+                <th>
+                    Segundo Nombre
+                </th>
+                <th>
+                    Primer Apellido
+                </th>
+                <th>
+                    Segundo Apellido
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Modificar
+                </th>
+                <th>
+                    Eliminar
+                </th>
+            </tr>
+            @foreach (var usuarios in Model)
+            {
+                <tr>
+                    <td>
+                        @usuarios.NombrePerfil
+                    </td>
+                    <td>
+                        @usuarios.LoginUsuario
+                    </td>
+                    <td>
+                        @usuarios.NombreTipDoc
+                    </td>
+                    <td>
+                        @usuarios.DocumentoUsuario
+                    </td>
+                    <td>
+                        @usuarios.Nombre1Usuario
+                    </td>
+                    <td>
+                        @usuarios.Nombre2Usuario
+                    </td>
+                    <td>
+                        @usuarios.Apellido1Usuario
+                    </td>
+                    <td>
+                        @usuarios.Apellido2Usuario
+                    </td>
+                    <td>
+                        @usuarios.EmailUsuario
+                    </td>
+                    <td>
+                        <a href="/Home/ModificarUsuario?cod=@usuarios.IdUsuario">Modificar</a>
+                    </td>
+                    <td>
+                        <a href="/Home/Index">Desactivar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

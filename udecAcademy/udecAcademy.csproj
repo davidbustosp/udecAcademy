@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MantenimientoUsuario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,6 +136,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\menus.css" />
     <Content Include="Content\css\registro.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -174,6 +176,8 @@
       <BrowseToURL>~/Acceso/Registrar</BrowseToURL>
     </Content>
     <Content Include="Views\Home\Registrar.cshtml" />
+    <Content Include="Views\Home\ConsultaUsuarios.cshtml" />
+    <Content Include="Views\Home\ModificarUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

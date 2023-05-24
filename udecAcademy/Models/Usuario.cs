@@ -13,7 +13,9 @@ namespace udecAcademy.Models
         public int IdUsuario { get; set; }
         public int PerfilUsuario { get; set; }
         public string LoginUsuario { get; set; }
+        public string NombrePerfil { get; set; }//Agregado
         public int IdTipoDocUsuario { get; set; }
+        public string NombreTipDoc { get; set; }//Agregado
         public string DocumentoUsuario { get; set; }
         public string Nombre1Usuario { get; set; }
         public string Nombre2Usuario { get; set; }
