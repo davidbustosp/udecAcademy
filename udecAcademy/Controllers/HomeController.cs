@@ -199,37 +199,9 @@ namespace udecAcademy.Controllers
         }
         public ActionResult EliminaUsuario(int cod)
         {
-            return View(EliminaUsuario());
+            return View();
         }
-        public ActionResult EliminaUsuario(Usuario oUsuario)
-        {
-            bool registrado;
-            string mensaje;
-
-            Conectar();
-            SqlCommand comando = new SqlCommand("sp_modificaUsuario", con);
-            comando.Parameters.AddWithValue("IdUsuario", oUsuario.IdUsuario);
-
-            comando.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-            comando.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
-            comando.CommandType = CommandType.StoredProcedure;
-            con.Open();
-            comando.ExecuteNonQuery();
-
-            registrado = Convert.ToBoolean(comando.Parameters["Registrado"].Value);
-            mensaje = comando.Parameters["Mensaje"].Value.ToString();
-
-            ViewData["Mensaje"] = mensaje;
-
-            if (registrado)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return View();
-            }
-        }
+       
 
 
     }
