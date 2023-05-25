@@ -96,6 +96,11 @@ namespace udecAcademy.Controllers
         public ActionResult Login(Usuario oUsuario)
         {
             //oUsuario.ClaveUsuario = GetSHA256(oUsuario.ClaveUsuario);
+            if(oUsuario.LoginUsuario==null || oUsuario.ClaveUsuario==null)
+            {
+                oUsuario.LoginUsuario = "INCORRECTO";
+                oUsuario.ClaveUsuario = "INCORECTO";
+            }
             Conectar();
             SqlCommand comando = new SqlCommand("sp_validausuario", con);
             comando.Parameters.AddWithValue("LoginUsuario", oUsuario.LoginUsuario);
