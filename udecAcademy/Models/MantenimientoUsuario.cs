@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace udecAcademy.Models
 
@@ -55,7 +56,7 @@ namespace udecAcademy.Models
             string mensaje;
 
             Conectar();
-            SqlCommand comando = new SqlCommand("sp_modificaUsuario");
+            SqlCommand comando = new SqlCommand("sp_EliminaUsuario");
             comando.Parameters.AddWithValue("IdUsuario", oUsuario.IdUsuario);
             comando.Parameters.AddWithValue("IdPerfilUsuario", oUsuario.PerfilUsuario);
             comando.Parameters.AddWithValue("LoginUsuario", oUsuario.LoginUsuario);
@@ -84,19 +85,33 @@ namespace udecAcademy.Models
 
 
         }
+        
         public int Eliminar(int codigo)
         {
+
+            bool registrado;
+            string mensaje;
+            
+
             Conectar();
-            SqlCommand comando=new SqlCommand("sp_EliminaUsuario");
-            comando.Parameters.Add("@codigo", SqlDbType.Int);
-            comando.Parameters["@codigo"].Value = codigo;
+            SqlCommand comando=new SqlCommand("sp_EliminaUsuario", con);
+            comando.Parameters.AddWithValue("IdUsuario", codigo);
+
+            comando.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+            comando.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+
             comando.CommandType = CommandType.StoredProcedure;
             con.Open();
-            int i = comando.ExecuteNonQuery();
+            int i=comando.ExecuteNonQuery();
+
+            registrado = Convert.ToBoolean(comando.Parameters["Registrado"].Value);
+            mensaje = comando.Parameters["Mensaje"].Value.ToString();
+            
+
             con.Close();
             return i;
         }
 
-      
+
     }
 }

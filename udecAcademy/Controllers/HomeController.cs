@@ -199,8 +199,15 @@ namespace udecAcademy.Controllers
         }
         public ActionResult EliminaUsuario(int cod)
         {
-            return View();
+            int codigou;
+            MantenimientoUsuario ma = new MantenimientoUsuario();
+            Usuario user = ma.RecuperaUsuario(cod);
+            codigou = user.IdUsuario;
+            int i = ma.Eliminar(codigou);
+            return RedirectToAction("Index");
         }
+
+
        
 
 
